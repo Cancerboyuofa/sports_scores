@@ -30,79 +30,79 @@ while(True):
 
 # Get new unread emails from INBOX folder with scores or teams
 
-            for msg in mailbox.fetch(AND(seen=False)):
-                
-                subject = str(msg.subject)
-                subject = subject.upper()
-                
-                if subject == 'SCORES':
-                        
-                    scores_sent = True
-                    print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
-                    email_subject = 'Here Are The Scores You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+        for msg in mailbox.fetch(AND(seen=False)):
+            
+            subject = str(msg.subject)
+            subject = subject.upper()
+            
+            if subject == 'SCORES':
+                    
+                scores_sent = True
+                print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
+                email_subject = 'Here Are The Scores You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'MLB SCORES':
-                        
-                    scores_sent = True
-                    print("Matching MLB Request Found: ", msg.date, msg.subject, msg.uid)
-                    sport = 'mlb'
-                    email_subject = 'Here Are The MLB Scores You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'MLB SCORES':
+                    
+                scores_sent = True
+                print("Matching MLB Request Found: ", msg.date, msg.subject, msg.uid)
+                sport = 'mlb'
+                email_subject = 'Here Are The MLB Scores You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'NFL SCORES':
-                        
-                    scores_sent = True
-                    print("Matching NFL Request Found: ", msg.date, msg.subject, msg.uid)
-                    sport = 'nfl'
-                    email_subject = 'Here Are The NFL Scores You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'NFL SCORES':
+                    
+                scores_sent = True
+                print("Matching NFL Request Found: ", msg.date, msg.subject, msg.uid)
+                sport = 'nfl'
+                email_subject = 'Here Are The NFL Scores You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'NBA SCORES':
-                        
-                    scores_sent = True
-                    print("Matching NBA Request Found: ",msg.date, msg.subject, msg.uid)
-                    sport = 'nba'
-                    email_subject = 'Here Are The NBA Scores You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'NBA SCORES':
+                    
+                scores_sent = True
+                print("Matching NBA Request Found: ",msg.date, msg.subject, msg.uid)
+                sport = 'nba'
+                email_subject = 'Here Are The NBA Scores You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'DBACKS':
-                    team = 'dbacks'
-                    scores_sent = True
-                    print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
-                    email_subject = 'Here is the Dbacks info You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'DBACKS':
+                team = 'dbacks'
+                scores_sent = True
+                print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
+                email_subject = 'Here is the Dbacks info You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'RAIDERS':
-                    team = 'raiders'
-                    scores_sent = True
-                    print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
-                    email_subject = 'Here is the Raiders info You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'RAIDERS':
+                team = 'raiders'
+                scores_sent = True
+                print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
+                email_subject = 'Here is the Raiders info You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                elif subject == 'SUNS':
-                    team = 'suns'
-                    scores_sent = True
-                    print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
-                    email_subject = 'Here is the Suns info You Requested!'
-                    uid=msg.uid
-                    scrape_send(sport, team, email_subject)
-                    mailbox.delete(msg.uid)
+            elif subject == 'SUNS':
+                team = 'suns'
+                scores_sent = True
+                print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
+                email_subject = 'Here is the Suns info You Requested!'
+                uid=msg.uid
+                scrape_send(sport, team, email_subject)
+                mailbox.delete(msg.uid)
 
-                else:
-                    scores_sent = False
+            else:
+                scores_sent = False
 
 
     if scores_sent == False:
