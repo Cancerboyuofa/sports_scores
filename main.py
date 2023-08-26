@@ -14,7 +14,7 @@ while(True):
         team = None
         email_subject = None
 
-        def scrape_send(sport, team, email_subject):
+        def scrape_send(sport, team, email_subject, reciever):
 
             # Scrape proper stuff
 
@@ -22,7 +22,7 @@ while(True):
 
             # Send actual email
 
-            smtp.send_mail(message,email_subject)
+            smtp.send_mail(reciever, message,email_subject)
                                 
             print("E-Mail Sent....waiting for next request")
 
@@ -34,6 +34,7 @@ while(True):
             
             subject = str(msg.subject)
             subject = subject.upper()
+            sender = str(msg.from_ )
             
             if subject == 'SCORES':
                     
@@ -41,7 +42,7 @@ while(True):
                 print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
                 email_subject = 'Here Are The Scores You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'MLB SCORES':
@@ -51,7 +52,7 @@ while(True):
                 sport = 'mlb'
                 email_subject = 'Here Are The MLB Scores You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'NFL SCORES':
@@ -61,7 +62,7 @@ while(True):
                 sport = 'nfl'
                 email_subject = 'Here Are The NFL Scores You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'NBA SCORES':
@@ -71,7 +72,7 @@ while(True):
                 sport = 'nba'
                 email_subject = 'Here Are The NBA Scores You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'DBACKS':
@@ -80,7 +81,7 @@ while(True):
                 print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
                 email_subject = 'Here is the Dbacks info You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'RAIDERS':
@@ -89,7 +90,7 @@ while(True):
                 print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
                 email_subject = 'Here is the Raiders info You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             elif subject == 'SUNS':
@@ -98,7 +99,7 @@ while(True):
                 print("Matching Scores Request Found: ",msg.date, msg.subject, msg.uid)
                 email_subject = 'Here is the Suns info You Requested!'
                 uid=msg.uid
-                scrape_send(sport, team, email_subject)
+                scrape_send(sport, team, email_subject, sender)
                 mailbox.delete(msg.uid)
 
             else:
