@@ -30,7 +30,7 @@ while(True):
 
 # Get new unread emails from INBOX folder with scores or teams
 
-        for msg in mailbox.fetch(AND(seen=False)):
+        for msg in mailbox.fetch(AND(seen=False),mark_seen=False):
             
             subject = str(msg.subject)
             subject = subject.upper()
