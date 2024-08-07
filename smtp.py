@@ -14,7 +14,7 @@ def send_mail(to_email, message,eml_subject):
 
     # Send the actual message
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login("kylesgeemail@gmail.com", "trvzxacwfybnsskp")
+    server.login("kylesgeemail@gmail.com", "egwpdzorrzchvjxr")
     server.send_message(msg)
     server.quit()
 
