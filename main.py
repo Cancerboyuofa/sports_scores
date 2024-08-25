@@ -5,8 +5,8 @@ from imap_tools import MailBox, AND
 import smtp  # Assuming you have an smtp.py with send_mail function
 
 while True:
-    # Calculate timestamp for past few minutes (e.g., past 1 minute)
-    past_few_minutes = datetime.now() - timedelta(minutes=1)
+    # Calculate timestamp for past few minutes (e.g., past 5 minutes)
+    past_few_minutes = datetime.now() - timedelta(minutes=5)
     
     with MailBox('imap.gmail.com').login('kylesgeemail@gmail.com', 'egwpdzorrzchvjxr', initial_folder='INBOX') as mailbox:
         scores_sent = False
@@ -95,4 +95,4 @@ while True:
     if not scores_sent:
         print("No scores requested, will check in another 10 minutes...")
 
-    time.sleep(120)
+    time.sleep(100)
